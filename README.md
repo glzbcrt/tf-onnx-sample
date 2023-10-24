@@ -7,7 +7,7 @@ There are two main projects here, inside the **model** folder there is Tensorflo
 
 Inside the **onnx** you will find a notebook to learn more about ONNX.
 
-Feel free to use this content. Happy learning!
+Feel free to use this content. Happy learning! 😀
 
 ## model
 
@@ -18,7 +18,9 @@ The model will classify images from different classes. In order to train the mod
 
 Then execute the following command from this repo root folder. It will train the model and output it inside the **output** folder.
 
-```
+You need [Python 3.11](https://www.python.org/downloads/release/python-3116/), and it uses [pipenv](https://pipenv.pypa.io/en/latest/) to manage dependencies.
+
+```bash
 python model/main.py 
     --dataset-dir=<dir> 
     --image-width=<width> 
@@ -29,6 +31,7 @@ python model/main.py
 ```
 
 The parameters are:
+
 - **--dataset-dir**: the directory where the images organized by class are located.
 - **--image-width**: image width to be used.
 - **--image-height**: image height to be used.
@@ -36,7 +39,7 @@ The parameters are:
 - **--batch-size**: batch size to be used.
 - **--epochs**: epochs to train the model.
 
-#### Notes
+### Notes
 
 - The model will resize all images to the specified size. The width and height define the size. The larger the image, the bigger the model will be, the more time will take to train, and the more memory it will need.
 
@@ -44,14 +47,14 @@ The parameters are:
 
 - The **epochs** parameter defines how many rounds we should go over all the images to train the model.
 
-
-
 ## inference
 
 This is a C# application used to classify images. It uses the model created from the Python program described earlier or any other ONNX model that has the same input and output signature.
 The application uses the C# ONNX runtime to do its "magic".
 
-```
+You need [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) installed to use this tool.
+
+```bash
 inference.exe 
     --gpu
     --verbose
