@@ -10,7 +10,6 @@ onnxruntime = "*"
 pillow = "*"
 pillow-heif = "*"
 opencv-python = "*"
-colorama = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -41,7 +41,7 @@ The epochs parameters
 
 Below you can view the model defined. This is a sample model I took from the Tensorflow docs. I am not trying to create a innovative model architecture here. :)
 
-![aa](./assets/model.png)
+
 
 ## inference
 
@@ -66,3 +66,6 @@ To use OpenVINO in ONNX C# runtime we need to install the following packages. Th
 
 1. [Microsoft.ML.OnnxRuntime.Managed.1.15.0-dev-20230621-0632-69695172e.nupkg](https://github.com/intel/onnxruntime/releases/download/v5.0.0/Microsoft.ML.OnnxRuntime.Managed.1.15.0-dev-20230621-0632-69695172e.nupkg)
 2. [Microsoft.ML.OnnxRuntime.OpenVino.1.15.0-dev-20230621-0632-69695172e.nupkg](https://github.com/intel/onnxruntime/releases/download/v5.0.0/Microsoft.ML.OnnxRuntime.OpenVino.1.15.0-dev-20230621-0632-69695172e.nupkg)
+
+
+![aa](./assets/model.png)
