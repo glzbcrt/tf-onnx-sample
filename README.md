@@ -2,10 +2,10 @@
 
 Welcome reader!
 
-This is a small project to learn more about Tensorflow and ONNX.
+This is a small project to learn more about [Tensorflow](https://www.tensorflow.org/) and [ONNX](https://onnx.ai/).
 There are two main projects here, inside the **model** folder there is Tensorflow model created to classify images, and inside the **inference** folder a C# application to use the model.
 
-Inside the **onnx** you will find a notebook to learn more about ONNX.
+Inside the **onnx** you will find a notebook to learn more about ONNX. I must say, I ❤️ ONNX!
 
 Feel free to use this content. Happy learning! 😀
 
@@ -14,11 +14,9 @@ Feel free to use this content. Happy learning! 😀
 This is where everything starts. Here you will find a Python program to define, train, and export a Tensorflow model.
 The model will be exported as ONNX.
 
-The model will classify images from different classes. In order to train the model you must create a folder like the dataset here in this repo, where each subdirectory is a class. Inside this subdirectory add the images of that class.
+The model will classify images from different classes. In order to train the model you must create a folder like the dataset here in this repo, where each subdirectory is a class. Inside this subdirectory add the images of that class. 
 
-Then execute the following command from this repo root folder. It will train the model and output it inside the **output** folder.
-
-You need [Python 3.11](https://www.python.org/downloads/release/python-3116/), and it uses [pipenv](https://pipenv.pypa.io/en/latest/) to manage dependencies.
+Then execute the following command from this repo root folder. It will train the model and output it inside the **output** folder. You need [Python 3.11](https://www.python.org/downloads/release/python-3116/), and it uses [pipenv](https://pipenv.pypa.io/en/latest/) to manage dependencies.
 
 ```bash
 python model/main.py 
@@ -50,9 +48,7 @@ The parameters are:
 ## inference
 
 This is a C# application used to classify images. It uses the model created from the Python program described earlier or any other ONNX model that has the same input and output signature.
-The application uses the C# ONNX runtime to do its "magic".
-
-You need [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) installed to use this tool.
+The application uses the C# ONNX runtime to do its "magic". You need [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) installed to use this tool.
 
 ```bash
 inference.exe 
