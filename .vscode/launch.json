@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/inference/bin/Debug/net7.0/inference.dll",
+      "args": [
+        "--gpu=false",
+        "--model=onnx/model.onnx",
+        "--classes=onnx/classes",
+        "--image=c:/dataset/img.jpg",
+        "--verbose=false"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "env": {
+        // These environment variables will enable cuDNN logging.
+        // "CUDNN_LOGINFO_DBG": "1",
+        // "CUDNN_LOGWARN_DBG": "1",
+        // "CUDNN_LOGERR_DBG": "1",
+        // "CUDNN_LOGDEST_DBG": "stdout"
+      }
+    },
+    {
+      "name": "Python: model.py",
+      "type": "python",
+      "request": "launch",
+      "program": "model/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "--image-width=300",
+        "--image-height=310",
+        "--dataset-dir=d:/dataset",
+        "--image-channels=3",
+        "--epochs=20",
+        "--batch-size=5"
+      ]
+    }
+  ]
+}
