@@ -4,11 +4,11 @@ import onnx
 
 
 def save_classes(file: str, classes: list):
-    """_summary_
+    """Save the image classes to a file for later use.
 
     Args:
-        file (str): _description_
-        classes (list): _description_
+        file (str): file where the classes should be saved.
+        classes (list): list of classes to save.
     """
     with open(file, "w") as tmp:
         for className in classes:
@@ -16,13 +16,13 @@ def save_classes(file: str, classes: list):
 
 
 def build_model(output_classes: int, img_width: int, img_height: int, img_channels: int):
-    """_summary_
+    """Build the Tensorflow model to be used for training.
 
     Args:
-        output_classes (int): _description_
-        img_width (int): _description_
-        img_height (int): _description_
-        img_channels (int): _description_
+        output_classes (int): number of output classes.
+        img_width (int): input image width.
+        img_height (int): input image heigth.
+        img_channels (int): input image channels.
 
     Returns:
         _type_: _description_
@@ -44,13 +44,13 @@ def build_model(output_classes: int, img_width: int, img_height: int, img_channe
 
 
 def train_model(model, epochs: int, batch_size: int, training_ds, validation_ds):
-    """_summary_
+    """Train the model.
 
     Args:
-        model (_type_): _description_
-        epochs (int): _description_
-        training_ds (_type_): _description_
-        validation_ds (_type_): _description_
+        model (_type_): model to be trainned.
+        epochs (int): number of epochs to train.
+        training_ds (_type_): trainning dataset to use.
+        validation_ds (_type_): validation dataset to use.
     """
     model.compile(
         optimizer='adam',
@@ -66,12 +66,12 @@ def train_model(model, epochs: int, batch_size: int, training_ds, validation_ds)
 
 
 def save_onnx(model, path: str, shape):
-    """_summary_
+    """Save the trainned model as ONNX.
 
     Args:
-        model (_type_): _description_
-        path (str): _description_
-        shape (_type_): _description_
+        model (_type_): model to be saved.
+        path (str): path where the model should be saved.
+        shape (_type_): shape of the model input.
     """
     input_signature = [
         tf.TensorSpec(

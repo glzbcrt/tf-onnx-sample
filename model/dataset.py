@@ -6,7 +6,7 @@ import cv2
 
 
 def extract_frames_from_mp4(file: Path, stride: int = 10):
-    """Extract N frames as JPG files at every @stride.
+    """Extract N frames as JPG files at every @stride. The files will be saved in the same MP4 directory.
 
     Args:
         file (Path): MP4 file path.

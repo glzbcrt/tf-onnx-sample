@@ -7,15 +7,15 @@ from dataset import get_dataset, init, process_assets
 
 
 def main(dataset_dir: Path, image_width: int, image_height: int, image_channels: int, batch_size: int, epochs: int):
-    """_summary_
+    """Main program.
 
     Args:
-        dataset_dir (Path): _description_
-        image_width (int): _description_
-        image_height (int): _description_
-        image_channels (int): _description_
-        batch_size (int): _description_
-        epochs (int): _description_
+        dataset_dir (Path): directory where the dataset is located.
+        image_width (int): image width to be used during the training.
+        image_height (int): image height to be used during the training.
+        image_channels (int): number of channels to use. 3 means RGB, and 1 grayscale.
+        batch_size (int): batch size to be used during the training.
+        epochs (int): number of the epochs to train.
     """
 
     init()
@@ -51,10 +51,9 @@ def main(dataset_dir: Path, image_width: int, image_height: int, image_channels:
 
 
 def usage():
-    """_summary_
-    """
+    """Programa usage help."""
 
-    print("Usage: python model.py --dataset-dir <path>")
+    print("Usage: python model.py --dataset-dir=<path> --image-width=<width> --image-height=<height> --image-channels=<channels> --batch-size=<batch> --epochs=<epochs>")
     sys.exit(2)
 
 
