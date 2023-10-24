@@ -1,18 +1,16 @@
+from keras.utils import image_dataset_from_directory
 from pillow_heif import register_heif_opener
 from pathlib import Path
 from PIL import Image
 import cv2
 
-from keras.utils import image_dataset_from_directory
 
-
-def extract_frames_from_mp4(file: Path, frame: int = 30, stride: int = 10):
-    """_summary_
+def extract_frames_from_mp4(file: Path, stride: int = 10):
+    """Extract N frames as JPG files at every @stride.
 
     Args:
-        file (Path): _description_
-        frame (int, optional): _description_. Defaults to 30.
-        stride (int, optional): _description_. Defaults to 10.
+        file (Path): MP4 file path.
+        stride (int, optional): step to increment the frame to be extracted.
     """
 
     done = f"{file.parent}/{file.stem}.frames"
@@ -23,7 +21,7 @@ def extract_frames_from_mp4(file: Path, frame: int = 30, stride: int = 10):
     video = cv2.VideoCapture(str(file))
     frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
 
-    for i in range(0, int(frames), 10):
+    for i in range(0, int(frames), stride):
         video.set(cv2.CAP_PROP_POS_FRAMES, i)
         _, frame = video.read()
 
@@ -36,10 +34,10 @@ def extract_frames_from_mp4(file: Path, frame: int = 30, stride: int = 10):
 
 
 def convert_heic_to_jpg(file: Path):
-    """_summary_
+    """Convert a HEIC file to JPG. The file will be saved in the same directory as the HEIC file, but with the JPG extension.
 
     Args:
-        file (Path): _description_
+        file (Path): HEIC file path.
     """
 
     new = f"{file.parent}/{file.stem}.jpg"
@@ -52,17 +50,14 @@ def convert_heic_to_jpg(file: Path):
 
 
 def get_dataset(directoy: Path, ds_type: str, batch_size: int, image_width: int, image_height: int):
-    """_summary_
+    """Create a Tensorflow dataset from the specified directory.
 
     Args:
-        directoy (Path): _description_
-        ds_type (str): _description_
-        batch_size (int): _description_
-        image_width (int): _description_
-        image_height (int): _description_
-
-    Returns:
-        _type_: _description_
+        directoy (Path): directory where the dataset is located.
+        ds_type (str): dataset type. Can be training or validation.
+        batch_size (int): how many images we should return each time.
+        image_width (int): the width of the image to be returned.
+        image_height (int): the height of the image to be returned.
     """
 
     return image_dataset_from_directory(
@@ -76,10 +71,10 @@ def get_dataset(directoy: Path, ds_type: str, batch_size: int, image_width: int,
 
 
 def process_assets(directory: Path):
-    """_summary_
+    """Process HEIC and MP4 files located in the dataset directory.
 
     Args:
-        directory (Path): _description_
+        directory (Path): dataset directory.
     """
 
     for file in directory.glob("**/*.mp4"):
@@ -90,7 +85,6 @@ def process_assets(directory: Path):
 
 
 def init():
-    """_summary_
-    """
+    """Initialize the dataset module."""
 
     register_heif_opener()
